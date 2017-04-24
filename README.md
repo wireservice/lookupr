@@ -17,23 +17,63 @@ devtools::install_github("wireservice/lookupr")
 
 ## Usage
 
-If you have a table with years and you want to add a column with the annual Consumer Price Index:
+Load libraries and create simple test data:
 
 ``` r
-my_data_frame %>%
+library(dplyr)
+library(lookupr)
+
+data <- data.frame(year = c("2004", "2005", "2006", "2007"))
+```
+
+Lookup the consumer price index for each year:
+
+``` r
+data %>%
   lookup("year", "cpi")
+```
+
+```
+  year     cpi
+1 2004 188.908
+2 2005 195.267
+3 2006 201.558
+4 2007 207.344
 ```
 
 If you're column name is different from `year`:
 
 ``` r
-my_data_frame %>%
-  lookup("my_year", "cpi", lookup_keys = "year")
+data <- data.frame(anum = c("2004", "2005", "2006", "2007"))
+
+data %>%
+  lookup("anum", "cpi", lookup_keys = "year")
 ```
 
-For monthly CPI, with `year` and `month` columns:
+```
+  year     cpi
+1 2004 188.908
+2 2005 195.267
+3 2006 201.558
+4 2007 207.344
+```
+
+Monthly CPI:
 
 ``` r
-my_data_frame %>%
+data <- data.frame(
+  year = c("2004", "2004", "2005", "2005"),
+  month = c("11", "12", "1", "2")
+)
+
+data %>%
   lookup(c("year", "month"), "cpi")
+```
+
+```
+  year month   cpi
+1 2004    11 191.7
+2 2004    12 191.7
+3 2005     1 191.6
+4 2005     2 192.4
 ```
