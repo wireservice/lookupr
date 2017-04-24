@@ -1,4 +1,4 @@
-# lookup
+# lookupr
 
 Lookup pulls common lookup tables from the [lookup](https://github.com/wireservice/lookup) repository and joins them to your data.
 
