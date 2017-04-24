@@ -17,18 +17,18 @@ devtools::install_github("wireservice/lookupr")
 
 ## Usage
 
-Load libraries and create simple test data:
+Load libraries:
 
 ``` r
 library(dplyr)
 library(lookupr)
-
-data <- data.frame(year = c("2004", "2005", "2006", "2007"))
 ```
 
-Lookup the consumer price index for each year:
+Lookup the consumer price index for yearly data:
 
 ``` r
+data <- data.frame(year = c("2004", "2005", "2006", "2007"))
+
 data %>%
   lookup("year", "cpi")
 ```
