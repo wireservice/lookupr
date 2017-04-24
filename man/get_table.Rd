@@ -7,7 +7,7 @@
 get_table(x, keys, value, version = NULL)
 }
 \arguments{
-\item{x}{A \code{lookup_source} object.}
+\item{x}{A \code{\link{lookup_source}} object.}
 
 \item{keys}{A single lookup table key or a vector of keys.}
 

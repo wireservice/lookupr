@@ -30,7 +30,7 @@ make_metadata_path <- function(keys, value, version = NULL) {
   paste0(path, ".yml")
 }
 
-#' Create a \code{lookup_source} object which handles fetching lookup tables.
+#' Create a source object which handles fetching lookup tables.
 #'
 #' @export
 #' @param root Root url to the hosted lookup tables.
@@ -44,11 +44,11 @@ lookup_source <- function(root = "http://wireservice.github.io/lookup") {
 #' Fetch remote metadata for a lookup table.
 #'
 #' @export
-#' @param x A \code{lookup_source} object.
+#' @param x A \code{\link{lookup_source}} object.
 #' @param keys A single lookup table key or a vector of keys.
 #' @param value A lookup table value.
 #' @param version A lookup table version identifier.
-#' @return See \code{yaml.load}.
+#' @return See \code{\link[yaml]{yaml.load}}.
 get_metadata <- function(x, keys, value, version = NULL) UseMethod("get_metadata")
 
 #' @export
@@ -65,7 +65,7 @@ get_metadata.lookup_source <- function(x, keys, value, version = NULL) {
 #' Convert agate column types to R types.
 #'
 #' @param c A column definition from lookup table metadata.
-#' @return A column type suitable for use with \code{read_csv}.
+#' @return A column type suitable for use with \code{\link[readr]{read_csv}}.
 map_column_type <- function(c) {
   if (c$type == "Text") {
     return("c")
@@ -83,7 +83,7 @@ map_column_type <- function(c) {
 #' Fetch a lookup table from a remote url.
 #'
 #' @export
-#' @param x A \code{lookup_source} object.
+#' @param x A \code{\link{lookup_source}} object.
 #' @param keys A single lookup table key or a vector of keys.
 #' @param value A lookup table value.
 #' @param version A lookup table version identifier.

@@ -7,7 +7,7 @@
 get_metadata(x, keys, value, version = NULL)
 }
 \arguments{
-\item{x}{A \code{lookup_source} object.}
+\item{x}{A \code{\link{lookup_source}} object.}
 
 \item{keys}{A single lookup table key or a vector of keys.}
 
@@ -16,7 +16,7 @@ get_metadata(x, keys, value, version = NULL)
 \item{version}{A lookup table version identifier.}
 }
 \value{
-See \code{yaml.load}.
+See \code{\link[yaml]{yaml.load}}.
 }
 \description{
 Fetch remote metadata for a lookup table.

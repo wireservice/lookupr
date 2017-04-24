@@ -2,7 +2,7 @@
 % Please edit documentation in R/source.R
 \name{lookup_source}
 \alias{lookup_source}
-\title{Create a \code{lookup_source} object which handles fetching lookup tables.}
+\title{Create a source object which handles fetching lookup tables.}
 \usage{
 lookup_source(root = "http://wireservice.github.io/lookup")
 }
@@ -13,5 +13,5 @@ lookup_source(root = "http://wireservice.github.io/lookup")
 A source object.
 }
 \description{
-Create a \code{lookup_source} object which handles fetching lookup tables.
+Create a source object which handles fetching lookup tables.
 }

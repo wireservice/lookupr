@@ -2,7 +2,7 @@
 % Please edit documentation in R/main.R
 \name{lookup}
 \alias{lookup}
-\title{Fetch a lookup table and join it to the give \code{data.frame}.}
+\title{Fetch a lookup table and join it to your data.}
 \usage{
 lookup(data, keys, value, lookup_keys = NULL, version = NULL,
   source = NULL, require_match = NULL)
@@ -18,10 +18,13 @@ lookup(data, keys, value, lookup_keys = NULL, version = NULL,
 
 \item{version}{A lookup table version identifier.}
 
-\item{source}{A \code{lookup_source} or \code{NULL} to use the default.}
+\item{source}{A \code{\link{lookup_source}} or \code{NULL} to use the default.}
 
 \item{require_match}{If \code{TRUE}, values without a match in the lookup table will raise an error.}
 }
 \value{
 A \code{tbl}, or \code{NULL} if the table does not exist.
+}
+\description{
+This function works with \href{https://CRAN.R-project.org/package=magrittr}{magrittr} pipes.
 }

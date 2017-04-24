@@ -1,7 +1,18 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-lookupr
-=======
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# lookupr
 
 Lookup pulls common lookup tables from the [lookup](https://github.com/wireservice/lookup) repository and joins them to your data.
 
@@ -9,8 +20,7 @@ This is a port of Python's [agate-lookup](https://agate-lookup.readthedocs.io).
 
 This version does not do caching. If you don't want to redownload lookup tables, save a local copy of your results.
 
-Install
--------
+## Install
 
 From Github:
 
@@ -19,47 +29,36 @@ install.packages("devtools")
 devtools::install_github("wireservice/lookupr")
 ```
 
-Usage
------
+## Usage
 
 Load libraries:
 
-``` r
+```{r, message = FALSE}
 library(dplyr)
 library(lookupr)
 ```
 
 Lookup the consumer price index for yearly data:
 
-``` r
+```{r}
 data <- data.frame(year = c("2004", "2005", "2006", "2007"))
 
 data %>%
   lookup("year", "cpi")
-#>   year     cpi
-#> 1 2004 188.908
-#> 2 2005 195.267
-#> 3 2006 201.558
-#> 4 2007 207.344
 ```
 
 If you're column name is different from `year`:
 
-``` r
+```{r}
 data <- data.frame(anum = c("2004", "2005", "2006", "2007"))
 
 data %>%
   lookup("anum", "cpi", lookup_keys = "year")
-#>   anum     cpi
-#> 1 2004 188.908
-#> 2 2005 195.267
-#> 3 2006 201.558
-#> 4 2007 207.344
 ```
 
 Monthly CPI:
 
-``` r
+```{r}
 data <- data.frame(
   year = c("2004", "2004", "2005", "2005"),
   month = c("11", "12", "1", "2")
@@ -67,9 +66,4 @@ data <- data.frame(
 
 data %>%
   lookup(c("year", "month"), "cpi")
-#>   year month   cpi
-#> 1 2004    11 191.7
-#> 2 2004    12 191.7
-#> 3 2005     1 191.6
-#> 4 2005     2 192.4
 ```

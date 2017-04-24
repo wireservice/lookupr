@@ -10,7 +10,7 @@ map_column_type(c)
 \item{c}{A column definition from lookup table metadata.}
 }
 \value{
-A column type suitable for use with \code{read_csv}.
+A column type suitable for use with \code{\link[readr]{read_csv}}.
 }
 \description{
 Convert agate column types to R types.

@@ -13,7 +13,7 @@ from_lookup(keys, value, version = NULL, source = NULL)
 
 \item{version}{A lookup table version identifier.}
 
-\item{source}{A \code{lookup_source} or \code{NULL} to use the default.}
+\item{source}{A \code{\link{lookup_source}} or \code{NULL} to use the default.}
 }
 \value{
 A \code{tbl}, or \code{NULL} if the table does not exist.
