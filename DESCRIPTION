@@ -1,0 +1,15 @@
+Package: lookupr
+Type: Package
+Title: Quick Joins of Remote Lookup Tables
+Version: 0.1.0
+Authors@R: person("Groskopf", "Christopher", email = "chrisgroskopf@gmail.com",
+  role = c("aut", "cre"))
+Description: Lookup pulls common lookup tables from a Github repository
+  and joins them to your data. This a port of Python's agate-lookup.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+  readr,
+  yaml
+RoxygenNote: 6.0.1
