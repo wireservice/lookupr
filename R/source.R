@@ -32,6 +32,7 @@ make_metadata_path <- function(keys, value, version = NULL) {
 
 #' Create a \code{lookup_source} object which handles fetching lookup tables.
 #'
+#' @export
 #' @param root Root url to the hosted lookup tables.
 #' @return A source object.
 lookup_source <- function(root = "http://wireservice.github.io/lookup") {
@@ -42,6 +43,7 @@ lookup_source <- function(root = "http://wireservice.github.io/lookup") {
 
 #' Fetch remote metadata for a lookup table.
 #'
+#' @export
 #' @param x A \code{lookup_source} object.
 #' @param keys A single lookup table key or a vector of keys.
 #' @param value A lookup table value.
@@ -49,6 +51,7 @@ lookup_source <- function(root = "http://wireservice.github.io/lookup") {
 #' @return See \code{yaml.load}.
 get_metadata <- function(x, keys, value, version = NULL) UseMethod("get_metadata")
 
+#' @export
 get_metadata.lookup_source <- function(x, keys, value, version = NULL) {
   path <- make_metadata_path(keys, value, version)
 
@@ -79,6 +82,7 @@ map_column_type <- function(c) {
 
 #' Fetch a lookup table from a remote url.
 #'
+#' @export
 #' @param x A \code{lookup_source} object.
 #' @param keys A single lookup table key or a vector of keys.
 #' @param value A lookup table value.
@@ -86,6 +90,7 @@ map_column_type <- function(c) {
 #' @return A \code{tbl}, or \code{NULL} if the table does not exist.
 get_table <- function(x, keys, value, version = NULL) UseMethod("get_table")
 
+#' @export
 get_table.lookup_source <- function(x, keys, value, version = NULL) {
   meta <- get_metadata(x, keys, value, version)
   col_types <- sapply(meta$columns, map_column_type)

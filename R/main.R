@@ -2,6 +2,7 @@
 #'
 #' This method works with \code{%>%} pipes.
 #'
+#' @export
 #' @param data A \code{data.frame} to join to.
 #' @param keys A key column or vector of key columns to join on.
 #' @param value A lookup table value.
@@ -32,6 +33,7 @@ lookup <- function(data, keys, value, lookup_keys = NULL, version = NULL, source
 
 #' Fetch a lookup table and return it.
 #'
+#' @export
 #' @param keys A single lookup table key or a vector of keys.
 #' @param value A lookup table value.
 #' @param version A lookup table version identifier.
