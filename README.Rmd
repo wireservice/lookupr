@@ -65,5 +65,20 @@ data <- data.frame(
 )
 
 data %>%
-  lookup(c("year", "month"), "cpi")
+  lookup(c("year", "month"), "cpi", version="sa")
+```
+
+## Inflation adjustment
+
+As it's such a common use-case, lookup includes shortcut functions for doing CPI adjustment:
+
+```{r}
+data <- data.frame(
+  year = c("2005", "2006", "2007", "2008", "2009", "2010"),
+  price_a = c(100, 100, 100, 100, 100, 100),
+  price_b = c(200, 200, 200, 200, 200, 200)
+)
+
+data %>%
+  lookup_cpi(c("price_a", "price_b"), base = "2010")
 ```
